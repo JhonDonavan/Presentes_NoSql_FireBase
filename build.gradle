@@ -17,6 +17,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 ext {
@@ -25,7 +26,7 @@ ext {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-  //implementation 'org.springframework.cloud:spring-cloud-starter-aws'
+    //implementation 'org.springframework.cloud:spring-cloud-starter-aws'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -33,9 +34,6 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.2.RELEASE'
 	
 	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.3.1.RELEASE'
@@ -49,8 +47,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
 	compile group: 'org.modelmapper', name: 'modelmapper', version: '2.3.8'
 	
-	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
-	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	compile "io.springfox:springfox-swagger2:2.9.2"
 	
 	// https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
@@ -58,14 +55,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.springfox/springfox-bean-validators
 	compile group: 'io.springfox', name: 'springfox-bean-validators', version: '2.9.2'
 	
-	
+	// https://mvnrepository.com/artifact/org.springframework.plugin/spring-plugin-core
+	compile group: 'org.springframework.plugin', name: 'spring-plugin-core', version: '1.2.0.RELEASE'
 }
 
-dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
-}
 
 test {
 	useJUnitPlatform()
